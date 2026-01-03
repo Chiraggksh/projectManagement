@@ -1,0 +1,13 @@
+{
+  "name": "projectmanagement",
+  "version": "1.0.0",
+  "description": "A project management to learn backend",
+  "license": "ISC",
+  "author": "Chirag Kaushik",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
