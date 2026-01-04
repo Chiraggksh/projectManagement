@@ -1,5 +1,5 @@
 /*
-At start of the project we do: npm init --> ye ek node ecosystem set up krdeta h so that package.json file bnti h
+# At start of the project we do: npm init --> ye ek node ecosystem set up krdeta h so that package.json file bnti h
 which is identity card + config file of the project
 
 why need?: Because Node projects depend on:
@@ -18,4 +18,12 @@ what is npm init -y then? --> zyada details ni mngta fas fas json file bnadeta h
 
 ab jse manle tune express install kia ya kuch aisa install kia toh vo khud json me change hojaegaa bina kch add kre thats so important
 now the thing is package json me type:"modules" krle to have some requirement like this 
+
+
+# to make version control into sync: ki semicolon lgega ya ni ya fir tab spaces kitne honge thats why same ground hoga
+hence u use prettier : some commands
+prettierrc: for configuration
+.prettierignore : to ignore formatting some files
+orr baaki docs me check krlena 
+
  */
