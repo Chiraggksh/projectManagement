@@ -66,6 +66,8 @@ Restructuring code again : separation of app with index : ek alg hi file rkhoww 
 CORS issue tb aata h jb frontend and backend alg alg port prr kaam kr rhe ho and browser stop krde sharing and connection because of security issues ese to bhtt dikkate aane lgegi isliee
 hence we use middlewares : act as middle layer in server jb b frontend interacts with backend
 basic config of express middleware + cors config done + u need to download cors dependency
+
+see app.js
 */
 
 /*standardisation of apiResponse and apiErrors
@@ -80,6 +82,10 @@ now constants me kch b changes hongee toh constants kr skte h check : utils/cons
 
 /* connect with mongoDB
 vahi mann jo seekha tha tune about mongoose ORM use krte h to connect with mongodb into much nicer and good format:
-read about mongoose
+read about mongoose and make a default function to connect and mongoatlas setup krow and callit on index simple
 
+*/
+
+/*
+so this is itt bhaii mere this much minimum preparation is generally required to complete your basic setup and project how u do it
 */
