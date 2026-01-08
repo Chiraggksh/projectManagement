@@ -86,6 +86,17 @@ read about mongoose and make a default function to connect and mongoatlas setup 
 
 */
 
-/*
+/* healthcheck route
 so this is itt bhaii mere this much minimum preparation is generally required to complete your basic setup and project how u do it
+
+now jb b hm aws ya kahi b dalte h there is always healthcheck jo system ki health btata h : so basically overall work ab kch aisa hoga ki we will use controllers jisme hmara main logic hoga, routes jisme saare endpoint serve honge, and then we will be calling them on app.js
+router mein bhi boiler plate use hota h ek check in routes folder
+
+now we will use try catch ka alternative 
+
+*/
+
+/*CAtch error better with async handler
+vahi bhaii async await vala scene add krdo jb b db se lena ho so avoid too many try catch : next ka use in other way check in utils/async-handler and it is a genericc function
+u can use it anywhere
 */
