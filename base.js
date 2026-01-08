@@ -100,3 +100,11 @@ now we will use try catch ka alternative
 vahi bhaii async await vala scene add krdo jb b db se lena ho so avoid too many try catch : next ka use in other way check in utils/async-handler and it is a genericc function
 u can use it anywhere
 */
+
+/*user schema
+bhaiii ab frontend se aega data and we need to register into it: today we are learning about how we can add routes actual prd ka work started
+check user models for register to make schema
+
+schema bnaya using 2 {},{}
+first stores data and second stores timestamps: so schema can also store methods jo ki controller me jate vse ...so can also write methods as well as hooks
+*/
