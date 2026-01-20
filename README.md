@@ -1,80 +1,87 @@
-# Project Camp Backend 🚀
+# 🚀 Project Camp Backend
 
-A robust, secure, and scalable **RESTful API** for collaborative project management built with the MERN ecosystem principles. Project Camp Backend enables teams to manage projects, tasks, subtasks, notes, and members with **role-based access control**.
+> A production-grade RESTful API for collaborative project management with secure authentication, role-based access control, and scalable architecture.
 
----
-
-## 📌 Overview
-
-**Project Camp Backend** is designed to power a modern project management system. It supports structured collaboration through projects, task hierarchies, notes, and secure authentication mechanisms.
-
-The backend follows clean REST principles, strong authorization rules, and production-grade security practices.
+Project Camp Backend is a **real-world backend system** built to demonstrate how modern products handle authentication, authorization, project collaboration, and structured data flow. It is designed with **clean architecture, security best practices, and scalability** in mind.
 
 ---
 
-## 🎯 Target Users
+## ✨ Why Project Camp?
 
-* **Admin** – Full system access, project & member management
-* **Project Admin** – Task & subtask management within assigned projects
-* **Member** – View projects, update task and subtask progress
+Most backend projects stop at basic CRUD. **Project Camp goes beyond that**.
+
+This project focuses on:
+
+* 🔐 **Complete authentication lifecycle** (email verification, refresh tokens, password reset)
+* 🛡️ **Strict role-based access control (RBAC)**
+* 🧠 **Real project workflows** (projects → tasks → subtasks → notes)
+* 📦 **File uploads & metadata handling**
+* 🧩 **Extensible, production-style API design**
+
+It is ideal for:
+
+* Backend learning with real-world depth
+* Internship & placement portfolios
+* Full-stack integration with React / Mobile apps
 
 ---
 
-## ✨ Features
+## 🎯 Key Features
 
-### 🔐 Authentication & Authorization
+### 🔐 Authentication & Security
 
-* User registration with **email verification**
-* Secure login using **JWT access & refresh tokens**
-* Password change, forgot & reset password flow
-* Resend email verification
-* Role-Based Access Control (RBAC)
+* JWT-based authentication (access + refresh tokens)
+* Email verification flow
+* Forgot & reset password system
+* Secure password change
+* Protected routes with middleware
+
+### 👥 Role-Based Access Control
+
+Three-tier permission system:
+
+* **Admin** – Full system control
+* **Project Admin** – Project-level task control
+* **Member** – Task & subtask updates
 
 ### 📁 Project Management
 
-* Create, update, delete projects (Admin only)
-* List projects accessible to the user
-* View project details with team information
+* Create, update & delete projects
+* View accessible projects with member details
+* Admin-only project lifecycle control
 
-### 👥 Team Member Management
+### ✅ Task & Subtask Management
 
-* Invite members via email
-* Assign and update project-level roles
-* Remove members from projects
-
-### ✅ Task Management
-
-* Create, update, and delete tasks
-* Assign tasks to members
-* Track task status: `todo`, `in_progress`, `done`
-* Attach multiple files to tasks
-
-### 🧩 Subtask Management
-
-* Create subtasks under tasks
-* Update completion status (all roles)
-* Role-based creation & deletion control
+* Tasks with assignees and status tracking
+* Subtasks with completion tracking
+* Role-based task & subtask permissions
 
 ### 📝 Project Notes
 
-* Create and manage project notes (Admin only)
+* Admin-only note creation & editing
 * Read access for all project members
 
-### 🩺 System Health
+### 📎 File Attachments
 
-* Health check endpoint for monitoring API status
+* Multiple file uploads per task
+* Secure handling using Multer
+* Metadata tracking (URL, size, MIME type)
+
+### 🩺 Health Monitoring
+
+* Dedicated health check endpoint
 
 ---
 
 ## 🧱 Tech Stack
 
-* **Node.js** – Runtime environment
-* **Express.js** – REST API framework
-* **MongoDB** – NoSQL database
-* **Mongoose** – ODM for MongoDB
-* **JWT** – Authentication & authorization
-* **Multer** – File upload handling
-* **Nodemailer** – Email verification & password reset
+* **Node.js** – Runtime
+* **Express.js** – API framework
+* **MongoDB** – Database
+* **Mongoose** – ODM
+* **JWT** – Authentication
+* **Multer** – File uploads
+* **Nodemailer** – Email services
 
 ---
 
@@ -86,77 +93,46 @@ The backend follows clean REST principles, strong authorization rules, and produ
 
 ---
 
-## 📂 API Endpoints
+## 📂 API Overview
 
-### 🔑 Authentication (`/auth`)
+### 🔑 Auth
 
-* `POST /auth/register`
-* `POST /auth/login`
-* `POST /auth/logout`
-* `GET /auth/current-user`
-* `POST /auth/change-password`
-* `POST /auth/refresh-token`
-* `GET /auth/verify-email/:token`
-* `POST /auth/forgot-password`
-* `POST /auth/reset-password/:token`
-* `POST /auth/resend-email-verification`
+`/auth/register` • `/auth/login` • `/auth/refresh-token` • `/auth/verify-email`
 
-### 📁 Projects (`/projects`)
+### 📁 Projects
 
-* `GET /projects`
-* `POST /projects`
-* `GET /projects/:projectId`
-* `PUT /projects/:projectId`
-* `DELETE /projects/:projectId`
-* `GET /projects/:projectId/members`
-* `POST /projects/:projectId/members`
-* `PUT /projects/:projectId/members/:userId`
-* `DELETE /projects/:projectId/members/:userId`
+`/projects` • `/projects/:projectId` • `/projects/:projectId/members`
 
-### ✅ Tasks (`/tasks`)
+### ✅ Tasks & Subtasks
 
-* `GET /tasks/:projectId`
-* `POST /tasks/:projectId`
-* `GET /tasks/:projectId/t/:taskId`
-* `PUT /tasks/:projectId/t/:taskId`
-* `DELETE /tasks/:projectId/t/:taskId`
-* `POST /tasks/:projectId/t/:taskId/subtasks`
-* `PUT /tasks/:projectId/st/:subTaskId`
-* `DELETE /tasks/:projectId/st/:subTaskId`
+`/tasks/:projectId` • `/tasks/:projectId/t/:taskId`
 
-### 📝 Notes (`/notes`)
+### 📝 Notes
 
-* `GET /notes/:projectId`
-* `POST /notes/:projectId`
-* `GET /notes/:projectId/n/:noteId`
-* `PUT /notes/:projectId/n/:noteId`
-* `DELETE /notes/:projectId/n/:noteId`
+`/notes/:projectId`
 
-### 🩺 Health Check
+### 🩺 Health
 
-* `GET /healthcheck`
+`/healthcheck`
 
 ---
 
 ## 🔐 Permission Matrix
 
-| Feature                    | Admin | Project Admin | Member |
-| -------------------------- | ----- | ------------- | ------ |
-| Create Project             | ✅     | ❌             | ❌      |
-| Update/Delete Project      | ✅     | ❌             | ❌      |
-| Manage Members             | ✅     | ❌             | ❌      |
-| Create/Update/Delete Tasks | ✅     | ✅             | ❌      |
-| View Tasks                 | ✅     | ✅             | ✅      |
-| Update Subtask Status      | ✅     | ✅             | ✅      |
-| Create/Delete Subtasks     | ✅     | ✅             | ❌      |
-| Create/Update/Delete Notes | ✅     | ❌             | ❌      |
-| View Notes                 | ✅     | ✅             | ✅      |
+| Feature               | Admin | Project Admin | Member |
+| --------------------- | ----- | ------------- | ------ |
+| Create Project        | ✅     | ❌             | ❌      |
+| Manage Members        | ✅     | ❌             | ❌      |
+| Create / Update Tasks | ✅     | ✅             | ❌      |
+| View Tasks            | ✅     | ✅             | ✅      |
+| Update Subtask Status | ✅     | ✅             | ✅      |
+| Notes Management      | ✅     | ❌             | ❌      |
 
 ---
 
-## 🗂️ Data Models
+## 🗂️ Core Data Models
 
-### User Roles
+### Roles
 
 * `admin`
 * `project_admin`
@@ -170,52 +146,39 @@ The backend follows clean REST principles, strong authorization rules, and produ
 
 ---
 
-## 📎 File Management
-
-* Multiple file uploads supported per task
-* Stored in `public/images`
-* Metadata stored: file URL, type, size
-* Secure upload handling via Multer
-
----
-
 ## 🔒 Security Highlights
 
-* JWT authentication with refresh tokens
-* Role-based authorization middleware
-* Input validation across all routes
-* Email verification & secure password reset
-* CORS configured for controlled access
+* Token-based authentication
+* Refresh token rotation
+* Input validation on all routes
+* Secure email workflows
+* CORS configuration
 
 ---
 
-## ✅ Success Criteria
+## 📌 Project Goals
 
-* Secure and scalable authentication system
-* End-to-end project and task lifecycle support
-* Strict role-based access control
-* File attachment support for collaboration
-* Reliable email-based user verification
-* Clean, REST-compliant API architecture
+* Build a **real backend**, not a demo
+* Follow **industry-grade security practices**
+* Demonstrate **scalable API design**
+* Be easy to integrate with any frontend
 
 ---
 
-## 📘 Notes
-
-This project is designed with **production-readiness** in mind and can be easily extended with:
+## 🚧 Future Enhancements
 
 * Real-time notifications (WebSockets)
 * Activity logs & audit trails
-* Frontend integration (React)
-* Deployment via Docker & CI/CD
+* Docker & CI/CD setup
+* Swagger / OpenAPI documentation
 
 ---
 
-### 👨‍💻 Author
+## 👨‍💻 Author
 
 **Chirag Kaushik**
 Backend Developer | MERN Stack | API Design
 
 ---
 
-⭐ If you find this project useful, consider starring the repository!
+⭐ If this project helped you, consider starring the repository!
