@@ -18,12 +18,6 @@ This project focuses on:
 * 📦 **File uploads & metadata handling**
 * 🧩 **Extensible, production-style API design**
 
-It is ideal for:
-
-* Backend learning with real-world depth
-* Internship & placement portfolios
-* Full-stack integration with React / Mobile apps
-
 ---
 
 ## 🎯 Key Features
